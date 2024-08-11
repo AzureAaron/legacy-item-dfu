@@ -1,0 +1,72 @@
+plugins {
+	id 'java-library'
+	id 'maven-publish'
+}
+
+version = project.version
+group = project.maven_group
+
+repositories {
+	mavenCentral()
+	maven {
+		name = "Minecraft Libraries"
+		url = "https://libraries.minecraft.net"
+	}
+}
+
+dependencies {
+	api "com.mojang:datafixerupper:${project.dfu_version}"
+	compileOnlyApi "org.jetbrains:annotations:${project.annotations_version}"
+
+	testImplementation(platform('org.junit:junit-bom:5.10.3'))
+	testImplementation('org.junit.jupiter:junit-jupiter')
+	testRuntimeOnly('org.junit.platform:junit-platform-launcher')
+}
+
+base {
+	archivesName = project.archives_base_name
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 21
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
+
+test {
+	useJUnitPlatform()
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${base.archivesName.get()}"}
+	}
+}
+
+// Configure the maven publication
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			groupId = "net.azureaaron"
+			artifactId = "legacy-item-dfu"
+			
+			from components.java
+		}
+	}
+
+	repositories {
+		maven {
+			url = "https://maven.azureaaron.net/" + (System.getenv("LEGACY_ITEM_DFU_RELEASE") != null ? "releases" : "snapshots");
+
+			credentials(PasswordCredentials) {
+				username = System.getenv("AARON_MAVEN_USER");
+				password = System.getenv("AARON_MAVEN_PASS");
+			}
+		}
+	}
+}
