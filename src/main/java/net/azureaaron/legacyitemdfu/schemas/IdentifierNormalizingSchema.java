@@ -17,10 +17,12 @@ public class IdentifierNormalizingSchema extends Schema {
 			return ops.getStringValue(input).map(IdentifierNormalizingSchema::normalize);
 		}
 
+		@Override
 		public <T> T write(DynamicOps<T> dynamicOps, String string) {
 			return dynamicOps.createString(string);
 		}
 
+		@Override
 		public String toString() {
 			return "NamespacedString";
 		}

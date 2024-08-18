@@ -37,19 +37,19 @@ public class ItemStackComponentizationFix extends DataFix {
 	private static final int HIDE_UPGRADE_FLAG = 128;
 	private static final Set<String> POTION_ITEM_IDS = Set.of(
 			"minecraft:potion", "minecraft:splash_potion", "minecraft:lingering_potion", "minecraft:tipped_arrow"
-		);
-		private static final Set<String> ENTITY_BUCKET_ITEM_IDS = Set.of(
+			);
+	private static final Set<String> ENTITY_BUCKET_ITEM_IDS = Set.of(
 			"minecraft:pufferfish_bucket",
 			"minecraft:salmon_bucket",
 			"minecraft:cod_bucket",
 			"minecraft:tropical_fish_bucket",
 			"minecraft:axolotl_bucket",
 			"minecraft:tadpole_bucket"
-		);
-		private static final List<String> RELEVANT_ENTITY_NBT_KEYS = List.of(
+			);
+	private static final List<String> RELEVANT_ENTITY_NBT_KEYS = List.of(
 			"NoAI", "Silent", "NoGravity", "Glowing", "Invulnerable", "Health", "Age", "Variant", "HuntingCooldown", "BucketVariantTag"
-		);
-		private static final Set<String> BOOLEAN_BLOCK_STATE_PROPERTIES = Set.of(
+			);
+	private static final Set<String> BOOLEAN_BLOCK_STATE_PROPERTIES = Set.of(
 			"attached",
 			"bottom",
 			"conditional",
@@ -97,8 +97,8 @@ public class ItemStackComponentizationFix extends DataFix {
 			"slot_5_occupied",
 			"cracked",
 			"crafting"
-		);
-		private static final Splitter COMMA_SPLITTER = Splitter.on(',');
+			);
+	private static final Splitter COMMA_SPLITTER = Splitter.on(',');
 
 	public ItemStackComponentizationFix(Schema outputSchema, boolean changesType) {
 		super(outputSchema, changesType);

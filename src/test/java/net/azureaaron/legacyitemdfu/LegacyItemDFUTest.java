@@ -63,4 +63,14 @@ public class LegacyItemDFUTest {
 		System.out.println("Diamond Necron Head Fixed: " + fixed.getValue());
 		Assertions.assertEquals("{\"id\":\"minecraft:player_head\",\"count\":1,\"components\":{\"minecraft:enchantments\":{\"levels\":{\"minecraft:respiration\":3,\"minecraft:aqua_affinity\":1}},\"minecraft:custom_name\":\"{\\\"text\\\":\\\"§cAncient Diamond Necron Head §6✪§6✪§6✪§6✪§6✪§c➎\\\"}\",\"minecraft:profile\":{\"name\":\"\",\"id\":[-274636615,2139369501,-1414102641,2065434980],\"properties\":[{\"name\":\"textures\",\"value\":\"ewogICJ0aW1lc3RhbXAiIDogMTYwNTU1MjgyNDM1MiwKICAicHJvZmlsZUlkIiA6ICJhMmY4MzQ1OTVjODk0YTI3YWRkMzA0OTcxNmNhOTEwYyIsCiAgInByb2ZpbGVOYW1lIiA6ICJiUHVuY2giLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGIxMTVjZGM0NWZkODRmMjFmYmE3YWMwZjJiYzc3YmMzYjYzMDJiZTY3MDg0MmY2ZTExZjY2ZWI1NTdmMTNlZSIKICAgIH0KICB9Cn0=\"}]},\"minecraft:custom_data\":{\"ExtraAttributes\":{\"id\":\"DIAMOND_NECRON_HEAD\"}}}}", fixed.getValue().toString());
 	}
+
+	@Test
+	void testTreeCap() {
+		//{"id":286,"Damage":0,"Count":1,"tag":{"ench":[{"id":32,"lvl":5}],"Unbreakable":1,"HideFlags":254,"ExtraAttributes":{"id":"TREECAPITATOR_AXE"}}}
+		JsonElement a = JsonParser.parseString("{\"id\":286,\"Damage\":0,\"Count\":1,\"tag\":{\"ench\":[{\"id\":32,\"lvl\":5}],\"Unbreakable\":1,\"HideFlags\":254,\"ExtraAttributes\":{\"id\":\"TREECAPITATOR_AXE\"}}}");
+		Dynamic<JsonElement> fixed = FIXER.update(TypeReferences.LEGACY_ITEM_STACK, new Dynamic<>(JsonOps.INSTANCE, a), FIRST_VERSION, LATEST_VERSION);
+
+		System.out.println("Treecap Fixed: " + fixed.getValue());
+		Assertions.assertEquals("{\"id\":\"minecraft:golden_axe\",\"count\":1,\"components\":{\"minecraft:enchantments\":{\"levels\":{\"minecraft:efficiency\":5}},\"minecraft:dyed_color\":{\"rgb\":10511680,\"show_in_tooltip\":false},\"minecraft:hide_additional_tooltip\":{},\"minecraft:custom_data\":{\"ExtraAttributes\":{\"id\":\"TREECAPITATOR_AXE\"}}}}", fixed.getValue().toString());
+	}
 }
