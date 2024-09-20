@@ -24,6 +24,8 @@ public class SpawnEggItemIdFix extends DataFix {
 	private static final Short2ObjectMap<String> DAMAGE_2_ID = DataFixUtils.make(new Short2ObjectOpenHashMap<>(), map -> {
 		//Polar Bears shouldn't be damage 0 but Hypixel uses this for decoy spawn eggs and others
 		map.put((short) 0, "minecraft:polar_bear_spawn_egg");
+		//Elder Guardians use a placeholder damage of 4 for goblin eggs
+		map.put((short) 4, "minecraft:elder_guardian_spawn_egg");
 		map.put((short) 50, "minecraft:creeper_spawn_egg");
 		map.put((short) 51, "minecraft:skeleton_spawn_egg");
 		map.put((short) 52, "minecraft:spider_spawn_egg");
