@@ -20,7 +20,15 @@ import net.azureaaron.legacyitemdfu.schemas.Schema11;
 import net.azureaaron.legacyitemdfu.schemas.Schema2;
 
 public class LegacyItemStackFixer {
+	/**
+	 * @deprecated Use the getter method instead, prevents constant folding of this value.
+	 */
+	@Deprecated(since = "1.0.2", forRemoval = true)
 	public static final int FIRST_VERSION = 1;
+	/**
+	 * @deprecated Use the getter method instead, prevents constant folding of this value.
+	 */
+	@Deprecated(since = "1.0.2", forRemoval = true)
 	public static final int LATEST_VERSION = 12;
 	private static final DataFixer FIXER = build();
 
@@ -67,5 +75,13 @@ public class LegacyItemStackFixer {
 
 	public static DataFixer getFixer() {
 		return FIXER;
+	}
+
+	public static int getFirstVersion() {
+		return FIRST_VERSION;
+	}
+
+	public static int getLatestVersion() {
+		return LATEST_VERSION;
 	}
 }
