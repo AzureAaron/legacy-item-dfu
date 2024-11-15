@@ -1,8 +1,5 @@
 package net.azureaaron.legacyitemdfu;
 
-import static net.azureaaron.legacyitemdfu.LegacyItemStackFixer.FIRST_VERSION;
-import static net.azureaaron.legacyitemdfu.LegacyItemStackFixer.LATEST_VERSION;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +11,8 @@ import com.mojang.serialization.JsonOps;
 
 public class LegacyItemDFUTest {
 	private final DataFixer FIXER = LegacyItemStackFixer.getFixer();
+	private final int FIRST_VERSION = LegacyItemStackFixer.getFirstVersion();
+	private final int LATEST_VERSION = LegacyItemStackFixer.getLatestVersion();
 
 	@Test
 	void testSpawnEggItemIdFix() {
