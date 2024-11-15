@@ -570,6 +570,11 @@ public class ItemStackComponentizationFix extends DataFix {
 			writtenBookContentComponent = writtenBookContentComponent.set("pages", pages);
 		}
 
+		//Fix case where the book had no author and it would fail
+		if (writtenBookContentComponent.get("author").result().isEmpty()) {
+			writtenBookContentComponent = writtenBookContentComponent.set("author", dynamic.createString("Unknown"));
+		}
+
 		data.setComponent("minecraft:written_book_content", writtenBookContentComponent);
 	}
 
