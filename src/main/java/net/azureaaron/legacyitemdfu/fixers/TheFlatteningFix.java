@@ -345,6 +345,7 @@ public class TheFlatteningFix extends DataFix {
 		map.put("minecraft:record_strad.0", "minecraft:music_disc_strad");
 		map.put("minecraft:record_wait.0", "minecraft:music_disc_wait");
 		map.put("minecraft:record_ward.0", "minecraft:music_disc_ward");
+		map.put("minecraft:mob_spawner.0", "minecraft:spawner");
 	});
 	private static final Set<String> ORIGINAL_ITEM_NAMES = (Set<String>)FLATTENING_MAP.keySet()
 		.stream()
