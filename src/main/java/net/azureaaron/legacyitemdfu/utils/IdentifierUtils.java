@@ -1,6 +1,6 @@
 package net.azureaaron.legacyitemdfu.utils;
 
-public class IdentifierUtils {
+public final class IdentifierUtils {
 
 	public static String tryParse(String id) {
 		return trySplitOn(id, ':');

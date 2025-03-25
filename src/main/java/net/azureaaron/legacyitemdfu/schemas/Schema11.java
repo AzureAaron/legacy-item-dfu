@@ -12,7 +12,7 @@ import net.azureaaron.legacyitemdfu.TypeReferences;
 /**
  * Schema that represents an {@code ItemStack} with components.
  */
-public class Schema11 extends ItemStackOnlySchema {
+public final class Schema11 extends ItemStackOnlySchema {
 	public Schema11(int versionKey, Schema parent) {
 		super(versionKey, parent);
 	}

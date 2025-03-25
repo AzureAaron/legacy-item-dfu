@@ -14,7 +14,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonWriter;
 
-public class JsonHelper {
+public final class JsonHelper {
 
 	public static String toSortedString(JsonElement json) {
 		StringWriter stringWriter = new StringWriter();

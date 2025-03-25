@@ -20,7 +20,7 @@ import net.azureaaron.legacyitemdfu.schemas.Schema1;
 import net.azureaaron.legacyitemdfu.schemas.Schema11;
 import net.azureaaron.legacyitemdfu.schemas.Schema2;
 
-public class LegacyItemStackFixer {
+public final class LegacyItemStackFixer {
 	private static final int FIRST_VERSION = 1;
 	private static final int LATEST_VERSION = 13;
 	private static final DataFixer FIXER = build();

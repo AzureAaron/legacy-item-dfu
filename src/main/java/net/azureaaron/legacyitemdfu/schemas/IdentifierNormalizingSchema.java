@@ -10,7 +10,7 @@ import com.mojang.serialization.codecs.PrimitiveCodec;
 
 import net.azureaaron.legacyitemdfu.utils.IdentifierUtils;
 
-public class IdentifierNormalizingSchema extends Schema {
+public final class IdentifierNormalizingSchema extends Schema {
 	public static final PrimitiveCodec<String> CODEC = new PrimitiveCodec<String>() {
 		@Override
 		public <T> DataResult<String> read(DynamicOps<T> ops, T input) {

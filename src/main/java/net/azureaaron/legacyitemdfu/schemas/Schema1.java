@@ -13,7 +13,7 @@ import net.azureaaron.legacyitemdfu.TypeReferences;
 /**
  * Schema that represents an {@code ItemStack} with either a numeric or string id, and an NBT tag.
  */
-public class Schema1 extends ItemStackOnlySchema {
+public final class Schema1 extends ItemStackOnlySchema {
 	public Schema1(int versionKey, Schema parent) {
 		super(versionKey, parent);
 	}
