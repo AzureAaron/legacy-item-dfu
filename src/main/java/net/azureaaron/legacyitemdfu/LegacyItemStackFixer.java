@@ -16,13 +16,14 @@ import net.azureaaron.legacyitemdfu.fixers.PostFlatteningItemIdsFix;
 import net.azureaaron.legacyitemdfu.fixers.SpawnEggItemIdFix;
 import net.azureaaron.legacyitemdfu.fixers.TheFlatteningFix;
 import net.azureaaron.legacyitemdfu.fixers.TooltipDisplayFix;
+import net.azureaaron.legacyitemdfu.fixers.UnflattenTextComponentFix;
 import net.azureaaron.legacyitemdfu.schemas.Schema1;
 import net.azureaaron.legacyitemdfu.schemas.Schema11;
 import net.azureaaron.legacyitemdfu.schemas.Schema2;
 
 public final class LegacyItemStackFixer {
 	private static final int FIRST_VERSION = 1;
-	private static final int LATEST_VERSION = 13;
+	private static final int LATEST_VERSION = 14;
 	private static final DataFixer FIXER = build();
 
 	private static DataFixer build() {
@@ -64,7 +65,10 @@ public final class LegacyItemStackFixer {
 		builder.addFixer(new AttributeIdFix(schema12, true));
 
 		Schema schema13 = builder.addSchema(13, Schema::new);
-		builder.addFixer(new TooltipDisplayFix(schema13, true));
+		builder.addFixer(new UnflattenTextComponentFix(schema13, true));
+
+		Schema schema14 = builder.addSchema(14, Schema::new);
+		builder.addFixer(new TooltipDisplayFix(schema14, true));
 
 		return builder.build().fixer();
 	}
