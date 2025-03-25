@@ -15,21 +15,14 @@ import net.azureaaron.legacyitemdfu.fixers.NumericItemIdFix;
 import net.azureaaron.legacyitemdfu.fixers.PostFlatteningItemIdsFix;
 import net.azureaaron.legacyitemdfu.fixers.SpawnEggItemIdFix;
 import net.azureaaron.legacyitemdfu.fixers.TheFlatteningFix;
+import net.azureaaron.legacyitemdfu.fixers.TooltipDisplayFix;
 import net.azureaaron.legacyitemdfu.schemas.Schema1;
 import net.azureaaron.legacyitemdfu.schemas.Schema11;
 import net.azureaaron.legacyitemdfu.schemas.Schema2;
 
 public class LegacyItemStackFixer {
-	/**
-	 * @deprecated Use the getter method instead, prevents constant folding of this value.
-	 */
-	@Deprecated(since = "1.0.2", forRemoval = true)
-	public static final int FIRST_VERSION = 1;
-	/**
-	 * @deprecated Use the getter method instead, prevents constant folding of this value.
-	 */
-	@Deprecated(since = "1.0.2", forRemoval = true)
-	public static final int LATEST_VERSION = 12;
+	private static final int FIRST_VERSION = 1;
+	private static final int LATEST_VERSION = 13;
 	private static final DataFixer FIXER = build();
 
 	private static DataFixer build() {
@@ -69,6 +62,9 @@ public class LegacyItemStackFixer {
 
 		Schema schema12 = builder.addSchema(12, Schema::new);
 		builder.addFixer(new AttributeIdFix(schema12, true));
+
+		Schema schema13 = builder.addSchema(13, Schema::new);
+		builder.addFixer(new TooltipDisplayFix(schema13, true));
 
 		return builder.build().fixer();
 	}
