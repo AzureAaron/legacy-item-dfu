@@ -30,4 +30,4 @@ dependencies {
 This library is used like Minecraft's regular DFU, except you pass the custom `LEGACY_ITEM_STACK` TypeReference, pretty simple.
 
 ## Requirements
-- Minecraft 1.21+
+- Minecraft 1.21.5+
