@@ -73,3 +73,11 @@ publishing {
 		}
 	}
 }
+def portRepository = providers.gradleProperty('portMavenRepository')
+if (portRepository.isPresent()) {
+    publishing {
+        repositories {
+            maven { name = 'portWorkspace'; url = uri(portRepository.get()) }
+        }
+    }
+}
